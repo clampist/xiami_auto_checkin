@@ -1,2 +1,2 @@
 # replace USERNAME and PASSWORD with email account and corresponding password
-5 */8 * * * python /home/huxuan/Code/python/xiami_auto_checkin/xiami_auto_checkin.py USERNAME PASSWORD
+5 */8 * * * python2 /home/clampist/some/path/xiami_auto_checkin.py USERNAME PASSWORD

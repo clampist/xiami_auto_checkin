@@ -1,16 +1,16 @@
-#!/usr/bin/python
-# encoding:utf-8
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
 # +-----------------------------------------------------------------------------
 # | File: xiami_auto_checkin.py
-# | Author: huxuan
-# | E-mail: i(at)huxuan.org
-# | Created: 2012-12-11
-# | Last modified: 2012-02-06
+# | Author: clampist
+# | E-mail: clampist[at]gmail.com
+# | Created: 2012-06-23
+# | Last modified: 2012-06-23
 # | Description:
-# |     Description for xiami_auto_checkin.py
-# |
-# | Copyrgiht (c) 2012 by huxuan. All rights reserved.
-# | License GPLv3
+# |     auto checkin for xiami.com
+# | Forked from: huxuan/xiami_auto_checkin
+# | Copyrgiht (c) 2012 by clampist. All rights reserved.
+# | License: GPLv3
 # +-----------------------------------------------------------------------------
 
 import re
@@ -51,7 +51,9 @@ def main():
     # Get email and password
     if len(sys.argv) != 3:
         print >>f, '[Error] Please input email & password as sys.argv!'
+        print '[Usage] $ python2 xiami_auto_checkin.py EMAIL PASSWORD'
         print >>f, datetime.datetime.now()
+        print datetime.datetime.now()
         return
     email = sys.argv[1]
     password = sys.argv[2]
@@ -75,9 +77,12 @@ def main():
         result = check(login_response)
         if result:
             print >>f, '[Succeed] Checkin Already!', email, result
+            print '[Succeed] Checkin Already!', email, result
         else:
             print >>f, '[Error] Login Failed!', email
+            print '[Error] Login Failed!', email
         print >>f, datetime.datetime.now()
+        print datetime.datetime.now()
         return
     checkin_url = 'http://www.xiami.com' + checkin_result.group(1)
     checkin_headers = {'Referer':'http://www.xiami.com/web', 'User-Agent':'Opera/9.60',}
@@ -88,9 +93,12 @@ def main():
     result = check(checkin_response)
     if result:
         print >>f, '[Succeed] Checkin Succeed!', email, result
+        print '[Succeed] Checkin Succeed!', email, result
     else:
         print >>f, '[Error] Checkin Failed!'
+        print '[Error] Checkin Failed!'
     print >>f, datetime.datetime.now()
+    print datetime.datetime.now()
 
 if __name__=='__main__':
     main()
