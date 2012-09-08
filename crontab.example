@@ -1,3 +1,4 @@
 # replace /path/to/xiami_auto_checkin.py with the real path
-# # replace USERNAME and PASSWORD with email account and password
-5 */8 * * * python /path/to/xiami_auto_checkin.py USERNAME PASSWORD
+# replace USERNAME and PASSWORD with email account and password
+# env DISPLAY=:0.0 support notify
+5 */8 * * * env DISPLAY=:0.0 python /path/to/xiami_auto_checkin.py USERNAME PASSWORD

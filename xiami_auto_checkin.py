@@ -1,11 +1,11 @@
-#!/usr/bin/python2
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 # +-----------------------------------------------------------------------------
 # | File: xiami_auto_checkin.py
 # | Author: clampist
 # | E-mail: clampist[at]gmail[dot]com
 # | Created: 2012-06-23
-# | Last modified: 2012-09-06
+# | Last modified: 2012-09-08
 # | Description:
 # |     auto checkin for xiami.com
 # | Forked from: huxuan/xiami_auto_checkin
@@ -51,10 +51,10 @@ def main():
 
     # Get email and password
     if len(sys.argv) != 3:
-        print '[Error] Please input email & password as sys.argv!'
         subprocess.call(['notify-send', '[Error] Please input email & password as sys.argv!'])
         print >>f, '[Error] Please input email & password as sys.argv!'
         print >>f, datetime.datetime.now()
+        print '[Error] Please input email & password as sys.argv!'
         return
     email = sys.argv[1]
     password = sys.argv[2]
@@ -77,13 +77,13 @@ def main():
         # Checkin Already | Login Failed
         result = check(login_response)
         if result:
-            print '[Already] Checkin Already!', email, result
             subprocess.call(['notify-send', '[Already] Checkin Already!', email +' '+ result])
             print >>f, '[Already] Checkin Already!', email, result
+            print '[Already] Checkin Already!', email, result
         else:
-            print '[Error] Login Failed!', email
             subprocess.call(['notify-send', '[Error] Login Failed!', email])
             print >>f, '[Error] Login Failed!', email
+            print '[Error] Login Failed!', email
         print >>f, datetime.datetime.now()
         return
     checkin_url = 'http://www.xiami.com' + checkin_result.group(1)
@@ -94,13 +94,13 @@ def main():
     # Result
     result = check(checkin_response)
     if result:
-        print '[Success] Checkin Succeed!', email, result
         subprocess.call(['notify-send', '[Success] Checkin Succeed!', email +' '+ result])
         print >>f, '[Success] Checkin Succeed!', email, result
+        print '[Success] Checkin Succeed!', email, result
     else:
-        print '[Error] Checkin Failed!'
         subprocess.call(['notify-send', '[Error] Checkin Failed!'])
         print >>f, '[Error] Checkin Failed!'
+        print '[Error] Checkin Failed!'
     print >>f, datetime.datetime.now()
 
 if __name__=='__main__':
