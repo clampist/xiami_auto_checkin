@@ -51,7 +51,7 @@ def main():
 
     # Get email and password
     if len(sys.argv) != 3:
-        subprocess.call(['notify-send', '[Error] Please input email & password as sys.argv!'])
+        subprocess.call('notify-send -i error "[Error] Please input email & password as sys.argv!"', shell=True)
         print >>f, '[Error] Please input email & password as sys.argv!'
         print >>f, datetime.datetime.now()
         print '[Error] Please input email & password as sys.argv!'
@@ -77,11 +77,11 @@ def main():
         # Checkin Already | Login Failed
         result = check(login_response)
         if result:
-            subprocess.call(['notify-send', '[Already] Checkin Already!', email +' '+ result])
+            subprocess.call('notify-send -i info "[Already] Checkin Already! ' + email +' '+ result + '"', shell=True)
             print >>f, '[Already] Checkin Already!', email, result
             print '[Already] Checkin Already!', email, result
         else:
-            subprocess.call(['notify-send', '[Error] Login Failed!', email])
+            subprocess.call('notify-send -i error "[Error] Login Failed! ' + email + '"', shell=True)
             print >>f, '[Error] Login Failed!', email
             print '[Error] Login Failed!', email
         print >>f, datetime.datetime.now()
@@ -94,11 +94,11 @@ def main():
     # Result
     result = check(checkin_response)
     if result:
-        subprocess.call(['notify-send', '[Success] Checkin Succeed!', email +' '+ result])
+        subprocess.call('notify-send -i notification-message-email "[Success] Checkin Succeed! ' + email +' '+ result + '"', shell=True)
         print >>f, '[Success] Checkin Succeed!', email, result
         print '[Success] Checkin Succeed!', email, result
     else:
-        subprocess.call(['notify-send', '[Error] Checkin Failed!'])
+        subprocess.call('notify-send -i error "[Error] Checkin Failed!"', shell=True)
         print >>f, '[Error] Checkin Failed!'
         print '[Error] Checkin Failed!'
     print >>f, datetime.datetime.now()
